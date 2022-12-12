@@ -5,6 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace YellowCarrotDb.Models;
-internal class Recipe
+public class Recipe
 {
+    public int RecipeId { get; set; }
+    public required string Name { get; set; }
+    public List<Ingredient> Ingredients { get; set; } = new();
+    public List<Tag> Tags { get; set; } = new();
+    public User UserName { get; set; }
+
 }
