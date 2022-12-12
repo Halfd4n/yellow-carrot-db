@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace YellowCarrotDb.Models;
+public class Ingredient
+{
+    public int IngredientId { get; set; }
+    public required string IngredientName { get; set; }
+    public required string Unit { get; set; }
+    public required int Quantity { get; set; }
+}
