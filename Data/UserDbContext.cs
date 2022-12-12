@@ -22,15 +22,29 @@ public class UserDbContext : DbContext
 
 	}
 	
-	public DbSet<User> Users { get; set; }
+	public DbSet<AppUser> Users { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
-		optionsBuilder.UseSqlServer("Server=(localdb\\mssqllocaldb;Database=YellowCarrotUsersDb;Trusted_Connection=True;");
+		optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=YellowCarrotUsersDb;Trusted_Connection=True;");
 	}
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		modelBuilder.UseEncryption(_encryptionProvider);
+
+
+		modelBuilder.Entity<AppUser>().HasData(new AppUser
+		{
+			UserId = 1,
+			Username = "admin",
+			Password = "password",
+			IsAdmin = true
+		}, new AppUser()
+		{
+			UserId = 2,
+			Username = "user",
+			Password = "password"
+		});
 	}
 }

@@ -11,6 +11,7 @@ public class UnitOfWork
     private readonly RecipeDbContext _context;
     private RecipeRepository _recipeRepository;
     private IngredientRepository _ingredientRepository;
+    private TagRepository _tagRepository;
 
     public UnitOfWork(RecipeDbContext context)
     {
@@ -43,6 +44,20 @@ public class UnitOfWork
         }
     }
 
+    public TagRepository TagRepository
+    {
+        get
+        {
+            if(TagRepository is null)
+            {
+                _tagRepository = new TagRepository(_context);
+            }
+
+            return _tagRepository;
+        }
+    }
+
+    // Saving changes to the database:
     public async void SaveChangesAsync()
     {
         await _context.SaveChangesAsync();

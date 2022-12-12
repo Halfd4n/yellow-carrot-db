@@ -21,4 +21,14 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void btnSignIn_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void btnRegister_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
 }

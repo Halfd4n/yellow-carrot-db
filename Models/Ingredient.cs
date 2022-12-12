@@ -10,7 +10,7 @@ public class Ingredient
     public int IngredientId { get; set; }
     public required string IngredientName { get; set; }
     public required string Unit { get; set; }
-    public required int Quantity { get; set; }
+    public required double Quantity { get; set; }
     public int RecipeId { get; set; }
     public Recipe Recipe { get; set; }
 }

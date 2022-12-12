@@ -11,6 +11,5 @@ public class Recipe
     public required string Name { get; set; }
     public List<Ingredient> Ingredients { get; set; } = new();
     public List<Tag> Tags { get; set; } = new();
-    public User UserName { get; set; }
-
+    public string Username { get; set; }
 }
