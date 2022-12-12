@@ -41,8 +41,26 @@ public class RecipeRepository
             .FirstOrDefaultAsync(r => r.Name.Equals(recipeName));
     }
 
+    // Get one or many specific recipes depending using search string:
+    public async Task<List<Recipe>> GetRecipesByNameAsync(string searchString)
+    {
+        return await _context.Recipes
+            .Include(r => r.Tags)
+            .Where(r => r.Name.Equals(searchString))
+            .ToListAsync();
+    }    
+    
+    // Get one or many specific recipes depending on search string:
+    public async Task<List<Recipe>> GetRecipesByTagAsync(string searchString)
+    {
+        return await _context.Recipes
+            .Include(r => r.Tags)
+            .Where(r => r.Tags.Any(t => t.Name.Equals(searchString)))
+            .ToListAsync();
+    }
+
     // Add a recipe to the database:
-    public async void AddRecipeAsycn(Recipe recipeToAdd)
+    public async Task AddRecipeAsycn(Recipe recipeToAdd)
     {
         await _context.Recipes.AddAsync(recipeToAdd);
     }

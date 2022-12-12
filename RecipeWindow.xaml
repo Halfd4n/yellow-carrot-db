@@ -1,0 +1,186 @@
+﻿<Window x:Class="YellowCarrotDb.RecipeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YellowCarrotDb"
+        mc:Ignorable="d"
+        Title="RecipeWindow" Height="450" Width="420">
+    <Grid>
+        <StackPanel
+            Orientation="Horizontal"
+            Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Width="400" Margin="0,13,0,0"
+            >
+            <TextBox
+                x:Name="txtSearchString"
+                Width="200"
+                Height="26"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="12,12,0,0"
+                FontFamily="Rockwell"
+                />
+            <ComboBox
+                x:Name="cmbTags"
+                Height="26"
+                Width="200"
+                Margin="-200,0,0,0"
+                FontFamily="Rockwell"
+                Visibility="Hidden"
+                DisplayMemberPath="Name"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                >
+            </ComboBox>
+            <Button
+                x:Name="btnSearch"
+                Height="30"
+                Width="100"
+                Content="Search"
+                Margin="10"
+                VerticalAlignment="Top"
+                FontFamily="Rockwell"
+                Click="btnSearch_Click"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="btnSwitchSearch"
+                Height="30"
+                Width="55"
+                VerticalAlignment="Top"
+                Margin="5,10,0,0"
+                Click="btnSwitchSearch_Click"
+                Content="Name"
+                FontFamily="Rockwell"
+                ToolTip="Choose to search a recipes by name or tag."
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel
+            Height="50"
+            Width="340"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Margin="0,62,0,0"
+            Orientation="Horizontal"
+            >
+            <Button
+                x:Name="btnAddRecipe"
+                Content="Add recipe"
+                Width="80"
+                FontFamily="Rockwell"
+                Height="30"
+                VerticalAlignment="Center"
+                Margin="20,0,5,0"
+                Click="btnAddRecipe_Click"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="btnDetails"
+                Content="Details"
+                Width="80"
+                FontFamily="Rockwell"
+                Height="30"
+                VerticalAlignment="Center"
+                Margin="0,0,5,0"
+                Click="btnDetails_Click"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="btnDelete"
+                Content="Delete"
+                Width="80"
+                FontFamily="Rockwell"
+                Height="30"
+                VerticalAlignment="Center"
+                Margin="0,0,5,0"
+                Click="btnDelete_Click"
+                IsEnabled="False"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="btnSignOut"
+                Height="30"
+                Width="30"
+                VerticalAlignment="Top"
+                Margin="5,10,0,0"
+                Click="btnSignOut_Click"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel
+            Orientation="Vertical"
+            Height="300"
+            Width="380"
+            HorizontalAlignment="Center"
+            Margin="0,104,0,30"
+            >
+            <ListView
+                x:Name="lvRecipeList"
+                Height="250"
+                Width="350"
+                HorizontalAlignment="Left"
+                Margin="15,20,0,0"
+                Background="LightYellow"
+                FontFamily="Rockwell"
+                SelectionChanged="lvRecipeList_SelectionChanged"
+                >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.Resources>
+                    <Style TargetType="GridViewColumnHeader"/>
+                </ListView.Resources>
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="Background" Value="LightYellow"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        <GridView.Columns>
+                            <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Recipe" Width="170"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding Username}" Header="Author" Width="170"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

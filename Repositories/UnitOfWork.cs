@@ -22,7 +22,7 @@ public class UnitOfWork
     {
         get
         {
-            if(RecipeRepository is null)
+            if(_recipeRepository is null)
             {
                 _recipeRepository = new RecipeRepository(_context);
             }
@@ -35,7 +35,7 @@ public class UnitOfWork
     {
         get
         {
-            if(IngredientRepository is null)
+            if(_ingredientRepository is null)
             {
                 _ingredientRepository = new IngredientRepository(_context);
             }
@@ -48,7 +48,7 @@ public class UnitOfWork
     {
         get
         {
-            if(TagRepository is null)
+            if(_tagRepository is null)
             {
                 _tagRepository = new TagRepository(_context);
             }
@@ -58,7 +58,7 @@ public class UnitOfWork
     }
 
     // Saving changes to the database:
-    public async void SaveChangesAsync()
+    public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();
     }

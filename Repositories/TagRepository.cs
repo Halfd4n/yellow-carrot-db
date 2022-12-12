@@ -32,7 +32,7 @@ public class TagRepository
         return await _context.Tags.Include(t => t.Recipes).FirstOrDefaultAsync(t => t.Name.Equals(tagName));
     }
 
-    public async void AddTagAsync(Tag tagToAdd)
+    public async Task AddTagAsync(Tag tagToAdd)
     {
         await _context.Tags.AddAsync(tagToAdd);
     }

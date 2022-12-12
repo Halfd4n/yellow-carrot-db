@@ -39,13 +39,11 @@ public class UserRepository
     // Get a specific user from the database using user name and password:
     public async Task<AppUser> GetUserByUserNameAndPasswordAsync(string userName, string password)
     {
-        return await _context.Users
-            .Where(u => u.Username.Equals(userName) && u.Password.Equals(password))
-            .FirstOrDefaultAsync();
+        return await _context.Users.FirstOrDefaultAsync(u => u.Username.Equals(userName) && u.Password.Equals(password));
     }
 
     // Add a user to the database:
-    public async void AddUserAsync(AppUser userToAdd)
+    public async Task AddUserAsync(AppUser userToAdd)
     {
         await _context.Users.AddAsync(userToAdd);
     }

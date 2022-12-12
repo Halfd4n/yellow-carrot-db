@@ -37,7 +37,7 @@ public class IngredientRepository
     }
 
     // Add ingredient to the database:
-    public async void AddIngredientAsync(Ingredient ingredientToAdd)
+    public async Task AddIngredientAsync(Ingredient ingredientToAdd)
     {
         await _context.Ingredients.AddAsync(ingredientToAdd);
     }
