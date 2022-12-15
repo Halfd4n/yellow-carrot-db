@@ -2,20 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YellowCarrotDb.Data;
 
 #nullable disable
 
-namespace YellowCarrotDb.Migrations.UserDb
+namespace YellowCarrotDb.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20221212134323_AdminTrue")]
-    partial class AdminTrue
+    partial class UserDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

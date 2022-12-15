@@ -2,17 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YellowCarrotDb.Data;
 
 #nullable disable
 
-namespace YellowCarrotDb.Migrations
+namespace YellowCarrotDb.Migrations.RecipeDb
 {
     [DbContext(typeof(RecipeDbContext))]
-    partial class RecipeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221215103619_Initial2")]
+    partial class Initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,12 +200,42 @@ namespace YellowCarrotDb.Migrations
                         new
                         {
                             TagId = 2,
-                            Name = "Fastfood"
+                            Name = "Fast-food"
                         },
                         new
                         {
                             TagId = 3,
                             Name = "Meat"
+                        },
+                        new
+                        {
+                            TagId = 4,
+                            Name = "Fish"
+                        },
+                        new
+                        {
+                            TagId = 5,
+                            Name = "Vegan"
+                        },
+                        new
+                        {
+                            TagId = 6,
+                            Name = "Egg-free"
+                        },
+                        new
+                        {
+                            TagId = 7,
+                            Name = "Gluten-free"
+                        },
+                        new
+                        {
+                            TagId = 8,
+                            Name = "Keto"
+                        },
+                        new
+                        {
+                            TagId = 9,
+                            Name = "Healthy"
                         });
                 });
 

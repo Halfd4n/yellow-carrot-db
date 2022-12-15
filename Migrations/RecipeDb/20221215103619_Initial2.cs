@@ -4,10 +4,10 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace YellowCarrotDb.Migrations
+namespace YellowCarrotDb.Migrations.RecipeDb
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Initial2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -100,8 +100,14 @@ namespace YellowCarrotDb.Migrations
                 values: new object[,]
                 {
                     { 1, "Vegetarian" },
-                    { 2, "Fastfood" },
-                    { 3, "Meat" }
+                    { 2, "Fast-food" },
+                    { 3, "Meat" },
+                    { 4, "Fish" },
+                    { 5, "Vegan" },
+                    { 6, "Egg-free" },
+                    { 7, "Gluten-free" },
+                    { 8, "Keto" },
+                    { 9, "Healthy" }
                 });
 
             migrationBuilder.InsertData(

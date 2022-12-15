@@ -17,7 +17,10 @@ public class RecipeRepository
         _context = context;
     }
 
-    // Get all recipes from the database:
+    /// <summary>
+    /// Get all recipes from the database.
+    /// </summary>
+    /// <returns></returns>
     public async Task<List<Recipe>> GetAllRecipesAsync()
     {
         return await _context.Recipes
@@ -26,13 +29,31 @@ public class RecipeRepository
             .ToListAsync();
     }
 
-    // Get a specific recipe from the database using recipe id:
+    /// <summary>
+    /// Get a specific recipe from the database using recipe id.
+    /// </summary>
+    /// <param name="recipeId"></param>
+    /// <returns></returns>
     public async Task<Recipe> GetRecipeByIdAsync(int recipeId)
     {
         return await _context.Recipes.FindAsync(recipeId);
     }
 
-    // Get a specific recipe from the database using recipe name:
+    /// <summary>
+    /// Get a specific recipe including the tags by recipe id.
+    /// </summary>
+    /// <param name="recipeId"></param>
+    /// <returns></returns>
+    public async Task<Recipe> GetRecipeAndIncludeTagsByRecipeId(int recipeId)
+    {
+        return await _context.Recipes.Include(r => r.Tags).FirstOrDefaultAsync(r => r.RecipeId == recipeId);
+    }
+
+    /// <summary>
+    /// Get a specific recipe from the database using recipe name.
+    /// </summary>
+    /// <param name="recipeName"></param>
+    /// <returns></returns>
     public async Task<Recipe> GetRecipeByNameAsync(string recipeName)
     {
         return await _context.Recipes
@@ -41,7 +62,11 @@ public class RecipeRepository
             .FirstOrDefaultAsync(r => r.Name.Equals(recipeName));
     }
 
-    // Get one or many specific recipes depending using search string:
+    /// <summary>
+    /// Get one or many specific recipes depending using search string.
+    /// </summary>
+    /// <param name="searchString"></param>
+    /// <returns></returns>
     public async Task<List<Recipe>> GetRecipesByNameAsync(string searchString)
     {
         return await _context.Recipes
@@ -50,7 +75,11 @@ public class RecipeRepository
             .ToListAsync();
     }    
     
-    // Get one or many specific recipes depending on search string:
+    /// <summary>
+    /// Get one or many specific recipes depending on search string.
+    /// </summary>
+    /// <param name="searchString"></param>
+    /// <returns></returns>
     public async Task<List<Recipe>> GetRecipesByTagAsync(string searchString)
     {
         return await _context.Recipes
@@ -59,19 +88,38 @@ public class RecipeRepository
             .ToListAsync();
     }
 
-    // Add a recipe to the database:
-    public async Task AddRecipeAsycn(Recipe recipeToAdd)
+    /// <summary>
+    /// Get latest added recipe from the database.
+    /// </summary>
+    /// <returns></returns>
+    public async Task<Recipe> GetLatestRecipe()
+    {
+        return await _context.Recipes.OrderBy(r => r.RecipeId).LastAsync();
+    }
+
+    /// <summary>
+    /// Add a recipe to the database.
+    /// </summary>
+    /// <param name="recipeToAdd"></param>
+    /// <returns></returns>
+    public async Task AddRecipeAsync(Recipe recipeToAdd)
     {
         await _context.Recipes.AddAsync(recipeToAdd);
     }
 
-    // Update a recipe in the database:
+    /// <summary>
+    /// Update a recipe in the database.
+    /// </summary>
+    /// <param name="recipeToUpdate"></param>
     public void UpdateRecipe(Recipe recipeToUpdate)
     {
         _context.Recipes.Update(recipeToUpdate);
     }
 
-    // Remove a recipe from the database:
+    /// <summary>
+    /// Remove a recipe from the database.
+    /// </summary>
+    /// <param name="recipeToRemove"></param>
     public void RemoveRecipe(Recipe recipeToRemove)
     {
         _context.Recipes.Remove(recipeToRemove);

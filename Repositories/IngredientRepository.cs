@@ -18,37 +18,58 @@ public class IngredientRepository
         _context = context;
     }
 
-    // Get all ingredients in the database:
+    /// <summary>
+    /// Get all ingredients in the database.
+    /// </summary>
+    /// <returns></returns>
     public async Task<List<Ingredient>> GetAllIngredientsAsync()
     {
         return await _context.Ingredients.ToListAsync();
     }
 
-    // Get a specific ingredient from the database using ingredient id:
+    /// <summary>
+    /// Get a specific ingredient from the database using ingredient id.
+    /// </summary>
+    /// <param name="ingredientId"></param>
+    /// <returns></returns>
     public async Task<Ingredient> GetIngredientByIdAsync(int ingredientId)
     {
         return await _context.Ingredients.FindAsync(ingredientId);
     } 
 
-    // Get a specific ingredient from the database using ingredient name:
+    /// <summary>
+    /// Get a specific ingredient from the database using ingredient name.
+    /// </summary>
+    /// <param name="ingredientName"></param>
+    /// <returns></returns>
     public async Task<Ingredient> GetIngredientByNameAsync(string ingredientName)
     {
         return await _context.Ingredients.FirstOrDefaultAsync(i => i.IngredientName.Equals(ingredientName));
     }
 
-    // Add ingredient to the database:
+    /// <summary>
+    /// Add ingredient to the database.
+    /// </summary>
+    /// <param name="ingredientToAdd"></param>
+    /// <returns></returns>
     public async Task AddIngredientAsync(Ingredient ingredientToAdd)
     {
         await _context.Ingredients.AddAsync(ingredientToAdd);
     }
 
-    // Update an ingredient in the database:
+    /// <summary>
+    /// Update an ingredient in the database.
+    /// </summary>
+    /// <param name="ingredientToUpdate"></param>
     public void UpdateIngredient(Ingredient ingredientToUpdate)
     {
         _context.Ingredients.Update(ingredientToUpdate);
     }
 
-    // Remove an ingredient from the database:
+    /// <summary>
+    /// Remove an ingredient from the database.
+    /// </summary>
+    /// <param name="ingredientToRemove"></param>
     public void RemoveIngredient(Ingredient ingredientToRemove)
     {
         _context.Remove(ingredientToRemove);

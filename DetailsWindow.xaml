@@ -5,8 +5,344 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
-        Title="DetailsWindow" Height="450" Width="800">
+        Title="DetailsWindow" Height="450" Width="440" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFEAE56C"/>
+            <GradientStop Color="#FFFFBA3C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        
+        <StackPanel
+            Width="130"
+            Height="60"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,10,0,10"
+            >
+            <Label
+                Content="Recipe name:"
+                Height="30"
+                Width="120"
+                HorizontalAlignment="Left"
+                FontSize="16"
+                VerticalContentAlignment="Center"
+                FontFamily="Rockwell"
+                ></Label>
+            <Label
+                Content="Ingredient:"
+                Height="30"
+                Width="100"
+                HorizontalAlignment="Left"
+                FontSize="16"
+                FontFamily="Rockwell"
+                ></Label>
+        </StackPanel>
+        <StackPanel
+            Height="30"
+            Width="280"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="125,10,0,0"
+            Orientation="Horizontal">
+            <TextBox
+                x:Name="txtRecipeName"
+                FontFamily="Rockwell"
+                VerticalContentAlignment="Center"
+                Height="30"
+                Width="150"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                ></TextBox>
+            <Button
+                x:Name="btnEditRecipe"
+                Content="Edit"
+                Width="80"
+                Margin="40,0,0,0"
+                FontFamily="Rockwell"
+                Click="btnEditRecipe_Click"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel
+            Height="30"
+            Width="410"
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,70,0,0"
+            >
+            <Label
+                Content="Name:"
+                FontFamily="Rockwell"
+                Height="30"
+                ></Label>
+            <TextBox
+                x:Name="txtIngredientName"
+                Width="100"
+                FontFamily="Rockwell"
+                VerticalContentAlignment="Center"
+                Margin="5,0,10,0"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                ></TextBox>
+            <Label
+                Content="Unit:"
+                FontFamily="Rockwell"
+                Height="30"
+                ></Label>
+            <TextBox
+                x:Name="txtIngredientUnit"
+                Width="75"
+                FontFamily="Rockwell"
+                VerticalContentAlignment="Center"
+                Margin="5,0,10,0"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                ></TextBox>
+            <Label
+                Content="Quantity:"
+                FontFamily="Rockwell"
+                Height="30"
+                ></Label>
+            <TextBox
+                x:Name="txtIngredientQuantity"
+                Width="50"
+                FontFamily="Rockwell"
+                VerticalContentAlignment="Center"
+                Margin="5,0,10,0"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                ></TextBox>
+        </StackPanel>
+        <StackPanel
+            Height="30"
+            Width="410"
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,110,0,0"
+            >
+            <Button
+                x:Name="btnAddIngredient"
+                Content="Add ingredient"
+                Width="100"
+                Height="30"
+                FontFamily="Rockwell"
+                Margin="10,0,0,0"
+                Click="btnAddIngredient_Click"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="btnRemoveIngredient"
+                Content="Remove ingredient"
+                Width="120"
+                Height="30"
+                FontFamily="Rockwell"
+                Margin="10,0,0,0"
+                Click="btnRemoveIngredient_Click"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <ComboBox
+                x:Name="cmbTags"
+                Height="26"
+                Width="150"
+                Margin="10,0,0,0"
+                FontFamily="Rockwell"
+                DisplayMemberPath="Name"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+            </ComboBox>
+        </StackPanel>
+        <StackPanel
+            Height="200"
+            Width="410"
+            HorizontalAlignment="Left"
+            Margin="10,100,0,0"
+            Orientation="Horizontal"
+            >
+            <ListView
+                x:Name="lvIngredients"
+                Width="200"
+                Margin="0,0,10,0"
+                FontFamily="Rockwell"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="Background" Value="#FFEAE56C"/>
+                                <Setter Property="IsHitTestVisible" Value="False"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        <GridView.Columns>
+                            <GridViewColumn DisplayMemberBinding="{Binding IngredientName}" Header="Ingredient" Width="75"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding Unit}" Header="Unit" Width="45"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" Width="70"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView
+                x:Name="lvTags"
+                Width="100"
+                Margin="0,0,10,0"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                FontFamily="Rockwell"
+                IsEnabled="False"
+                >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="Background" Value="#FFEAE56C"/>
+                                <Setter Property="IsHitTestVisible" Value="False"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        <GridView.Columns>
+                            <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Tag(s)" Width="95"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button
+                x:Name="btnAddTag"
+                Content="Add tag"
+                Width="80"
+                Height="30"
+                FontFamily="Rockwell"
+                Margin="0,-140,0,0"
+                Click="btnAddTag_Click"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="btnRemoveTag"
+                Content="Remove tag"
+                Width="80"
+                Height="30"
+                FontFamily="Rockwell"
+                Margin="-80,-60,0,0"
+                Click="btnRemoveTag_Click"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel
+            Width="200"
+            Height="40"
+            HorizontalAlignment="Left"
+            Margin="230,360,0,0"
+            Orientation="Horizontal"
+            >
+            <Button
+                x:Name="btnSaveRecipe"
+                Content="Save"
+                Width="80"
+                Height="30"
+                FontFamily="Rockwell"
+                Margin="10,0,0,0"
+                Click="btnSaveRecipe_Click"
+                IsEnabled="False"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="btnCancel"
+                Content="Cancel"
+                Width="80"
+                Height="30"
+                FontFamily="Rockwell"
+                Margin="10,0,0,0"
+                Click="btnCancel_Click"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

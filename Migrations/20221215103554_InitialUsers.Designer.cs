@@ -8,11 +8,11 @@ using YellowCarrotDb.Data;
 
 #nullable disable
 
-namespace YellowCarrotDb.Migrations.UserDb
+namespace YellowCarrotDb.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20221212134106_Initial2")]
-    partial class Initial2
+    [Migration("20221215103554_InitialUsers")]
+    partial class InitialUsers
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace YellowCarrotDb.Migrations.UserDb
                         new
                         {
                             UserId = 1,
-                            IsAdmin = false,
+                            IsAdmin = true,
                             Password = "Wn90YJSoSfHOTqf0wYTu8w==",
                             Username = "admin"
                         },

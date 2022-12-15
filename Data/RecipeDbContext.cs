@@ -22,14 +22,60 @@ public class RecipeDbContext : DbContext
 	public DbSet<Recipe> Recipes { get; set; }
 	public DbSet<Tag> Tags { get; set; }
 
+	/// <summary>
+	/// Configuring database connection.
+	/// </summary>
+	/// <param name="optionsBuilder"></param>
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
 		optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=YellowCarrotRecipesDb;Trusted_Connection=True;");
 	}
 
+	/// <summary>
+	/// Seeding default tags, ingredients and recipes to the database.
+	/// </summary>
+	/// <param name="modelBuilder"></param>
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
-		modelBuilder.Entity<Ingredient>().HasData(new Ingredient
+        modelBuilder.Entity<Tag>().HasData(new Tag()
+        {
+            TagId = 1,
+            Name = "Vegetarian"
+        }, new Tag()
+        {
+            TagId = 2,
+            Name = "Fast-food"
+        }, new Tag()
+        {
+            TagId = 3,
+            Name = "Meat"
+        }, new Tag()
+        {
+            TagId = 4,
+            Name = "Fish"
+        }, new Tag()
+        {
+            TagId = 5,
+            Name = "Vegan"
+        }, new Tag()
+        {
+            TagId = 6,
+            Name = "Egg-free"
+        }, new Tag()
+        {
+            TagId = 7,
+            Name = "Gluten-free"
+        }, new Tag()
+        {
+            TagId = 8,
+            Name = "Keto"
+        }, new Tag()
+        {
+            TagId = 9,
+            Name = "Healthy"
+        });
+
+        modelBuilder.Entity<Ingredient>().HasData(new Ingredient
 		{
 			IngredientId = 1,
 			IngredientName = "Eggs",
@@ -83,28 +129,13 @@ public class RecipeDbContext : DbContext
 			RecipeId = 1,
 			Name = "Pancakes",
 			Ingredients = new(),
-			Username = "user"
-
+			Username = "user",
 		}, new Recipe()
 		{
 			RecipeId = 2,
 			Name = "Hot dogs",
 			Ingredients = new(),
 			Username = "user"
-		});
-
-		modelBuilder.Entity<Tag>().HasData(new Tag()
-		{
-			TagId = 1,
-			Name = "Vegetarian"
-		}, new Tag()
-		{
-			TagId = 2,
-			Name = "Fastfood"
-		}, new Tag()
-		{
-			TagId = 3,
-			Name = "Meat"
 		});
 
 		modelBuilder.Entity<Recipe>()

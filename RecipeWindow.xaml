@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
-        Title="RecipeWindow" Height="450" Width="420">
+        Title="RecipeWindow" Height="450" Width="420" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFEAE56C"/>
+            <GradientStop Color="#FFFFBA3C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
         <StackPanel
             Orientation="Horizontal"
@@ -23,6 +29,9 @@
                 VerticalContentAlignment="Center"
                 Margin="12,12,0,0"
                 FontFamily="Rockwell"
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 />
             <ComboBox
                 x:Name="cmbTags"
@@ -45,6 +54,9 @@
                 VerticalAlignment="Top"
                 FontFamily="Rockwell"
                 Click="btnSearch_Click"
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -62,6 +74,9 @@
                 Content="Name"
                 FontFamily="Rockwell"
                 ToolTip="Choose to search a recipes by name or tag."
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -87,6 +102,9 @@
                 VerticalAlignment="Center"
                 Margin="20,0,5,0"
                 Click="btnAddRecipe_Click"
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -103,6 +121,9 @@
                 VerticalAlignment="Center"
                 Margin="0,0,5,0"
                 Click="btnDetails_Click"
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -120,6 +141,9 @@
                 Margin="0,0,5,0"
                 Click="btnDelete_Click"
                 IsEnabled="False"
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -134,6 +158,9 @@
                 VerticalAlignment="Top"
                 Margin="5,10,0,0"
                 Click="btnSignOut_Click"
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -155,7 +182,9 @@
                 Width="350"
                 HorizontalAlignment="Left"
                 Margin="15,20,0,0"
-                Background="LightYellow"
+                Background="#FFFFFF6A"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 FontFamily="Rockwell"
                 SelectionChanged="lvRecipeList_SelectionChanged"
                 >
@@ -171,7 +200,8 @@
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
                             <Style TargetType="{x:Type GridViewColumnHeader}">
-                                <Setter Property="Background" Value="LightYellow"/>
+                                <Setter Property="Background" Value="#FFFFFF6A"/>
+                                <Setter Property="IsHitTestVisible" Value="False"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
                         <GridView.Columns>

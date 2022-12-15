@@ -24,11 +24,19 @@ public class UserDbContext : DbContext
 	
 	public DbSet<AppUser> Users { get; set; }
 
+	/// <summary>
+	/// Configuring database connection.
+	/// </summary>
+	/// <param name="optionsBuilder"></param>
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
 		optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=YellowCarrotUsersDb;Trusted_Connection=True;");
 	}
 
+	/// <summary>
+	/// Seeding default users.
+	/// </summary>
+	/// <param name="modelBuilder"></param>
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		modelBuilder.UseEncryption(_encryptionProvider);

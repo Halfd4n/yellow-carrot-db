@@ -4,10 +4,10 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace YellowCarrotDb.Migrations.UserDb
+namespace YellowCarrotDb.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial2 : Migration
+    public partial class InitialUsers : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,7 +32,7 @@ namespace YellowCarrotDb.Migrations.UserDb
                 columns: new[] { "UserId", "IsAdmin", "Password", "Username" },
                 values: new object[,]
                 {
-                    { 1, false, "Wn90YJSoSfHOTqf0wYTu8w==", "admin" },
+                    { 1, true, "Wn90YJSoSfHOTqf0wYTu8w==", "admin" },
                     { 2, false, "Wn90YJSoSfHOTqf0wYTu8w==", "user" }
                 });
         }
