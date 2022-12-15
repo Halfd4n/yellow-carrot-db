@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="RegisterWindow" Height="400" Width="440" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFEAE56C"/>
+            <GradientStop Color="#FFFFBA3C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
         <StackPanel>
             <Label
@@ -61,6 +67,7 @@
                 IsEnabled="False"
                 HorizontalContentAlignment="Center"
                 BorderThickness="0"
+                Background="{x:Null}"
                 />
         </StackPanel>
         <StackPanel

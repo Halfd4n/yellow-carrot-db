@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
         Title="AddRecipeWindow" Height="450" Width="440" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFEAE56C"/>
+            <GradientStop Color="#FFFFBA3C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
         <StackPanel
             Width="130"
@@ -152,7 +158,7 @@
                 x:Name="lvIngredients"
                 Width="200"
                 Margin="0,0,10,0"
-                Background="LightYellow"
+                Background="#FFEAE56C"
                 FontFamily="Rockwell"
                 >
                 <ListView.ItemContainerStyle>
@@ -180,7 +186,7 @@
                 x:Name="lvTags"
                 Width="100"
                 Margin="0,0,10,0"
-                Background="LightYellow"
+                Background="#FFEAE56C"
                 FontFamily="Rockwell"
                 >
                 <ListView.ItemContainerStyle>
@@ -192,7 +198,7 @@
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
                             <Style TargetType="{x:Type GridViewColumnHeader}">
-                                <Setter Property="Background" Value="LightYellow"/>
+                                <Setter Property="Background" Value="#FFEAE56C"/>
                                 <Setter Property="IsHitTestVisible" Value="False"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>

@@ -42,7 +42,7 @@ public partial class RecipeWindow : Window
     /// Updating the UI.
     /// </summary>
     private async void UpdateUI()
-    {
+    {        
         using (RecipeDbContext context = new())
         {
             UnitOfWork unitOfWork = new(context);

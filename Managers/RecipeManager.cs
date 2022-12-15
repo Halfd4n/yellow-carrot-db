@@ -201,14 +201,12 @@ public class RecipeManager
     /// <returns></returns>
     public async Task DeleteRecipe(Recipe recipeToRemove)
     {
-
         using (RecipeDbContext recipeContext = new())
         {
             UnitOfWork unitOfWork = new(recipeContext);
 
             unitOfWork.RecipeRepository.RemoveRecipe(recipeToRemove);
             await unitOfWork.SaveChangesAsync();
-
         }
     }
 }
