@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="420" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="400" Width="420" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FFEAE56C"/>
@@ -13,7 +13,12 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <StackPanel Margin="0,67,0,82">
+        <StackPanel>
+            <Image 
+                Source="/images/logo-text.png"
+                Height="100"/>
+        </StackPanel>
+        <StackPanel Margin="0,80,0,82">
             <Label
                 Content="Username:"
                 FontSize="18"
@@ -57,7 +62,7 @@
             Orientation="Horizontal"
             Height="75"
             Width="300"
-            Margin="0,140,0,80"
+            Margin="0,150,0,80"
             >
             <Button
                 x:Name="btnSignIn"
