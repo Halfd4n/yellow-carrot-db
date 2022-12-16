@@ -13,11 +13,12 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="0,67,0,82">
             <Label
                 Content="Username:"
-                FontSize="20"
+                FontSize="18"
                 HorizontalAlignment="Center"
+                FontFamily="Rockwell"
                 />
             <TextBox
                 x:Name="txtUsername"
@@ -26,10 +27,15 @@
                 HorizontalAlignment="Center"
                 VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center"
+                FontFamily="Rockwell"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 />
             <Label
                 Content="Password:"
-                FontSize="20"
+                FontSize="18"
+                FontFamily="Rockwell"
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
@@ -42,13 +48,16 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 KeyDown="pswPassword_KeyDown"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
                 />
         </StackPanel>
         <StackPanel
             Orientation="Horizontal"
             Height="75"
             Width="300"
-            Margin="0,0,0,80"
+            Margin="0,140,0,80"
             >
             <Button
                 x:Name="btnSignIn"
@@ -57,6 +66,10 @@
                 Width="100"
                 Margin="40,0,5,0"
                 Click="btnSignIn_Click"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                FontFamily="Rockwell"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -71,6 +84,10 @@
                 Width="100"
                 Margin="5,0,40,0"
                 Click="btnRegister_Click"
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                FontFamily="Rockwell"
                 >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -78,6 +95,24 @@
                     </Style>
                 </Button.Resources>
             </Button>
+        </StackPanel>
+        <StackPanel
+            Width="200"
+            Height="70"
+            Margin="25,265,195,49"
+            Orientation="Horizontal">
+            <Image
+                Source="/images/chefs-hat.png"
+                Height="50"
+                Width="30"
+                Margin="0,0,0,0"
+                />
+            <Image
+                Source="/images/slogan.png"
+                Height="30"
+                Width="130"
+                Margin="-10,18,0,0"
+                />
         </StackPanel>
     </Grid>
 </Window>

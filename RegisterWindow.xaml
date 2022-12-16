@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="400" Width="440" WindowStartupLocation="CenterScreen">
+        Title="RegisterWindow" Height="480" Width="440" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FFEAE56C"/>
@@ -13,11 +13,21 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <StackPanel>
+        <StackPanel
+            Height="50"
+            Width="50"
+            VerticalAlignment="Top">
+            <Image
+                Source="/images/add-user.png"
+                />
+        </StackPanel>
+        <StackPanel
+            Margin="0,50,0,166">
             <Label
                 Content="Choose username:"
-                FontSize="20"
+                FontSize="18"
                 HorizontalAlignment="Center"
+                FontFamily="Rockwell"
                 />
             <TextBox
                 x:Name="txtNewUsername"
@@ -26,13 +36,18 @@
                 HorizontalAlignment="Center"
                 VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                Background="#FFEAE56C"
+                FontFamily="Rockwell"
                 />
             <Label
                 Content="Password:"
-                FontSize="20"
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
+                FontSize="18"
+                FontFamily="Rockwell"
                 />
             <PasswordBox
                 x:Name="pswPassword"
@@ -41,13 +56,17 @@
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                Background="#FFEAE56C"
                 />
             <Label
                 Content="Confirm password:"
-                FontSize="20"
+                FontSize="18"
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
+                FontFamily="Rockwell"
                 />
             <PasswordBox
                 x:Name="pswRepeatPassword"
@@ -56,6 +75,9 @@
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                Background="#FFEAE56C"
                 />
             <TextBox
                 x:Name="txtErrorMessage"
@@ -63,18 +85,19 @@
                 Height="50"
                 Width="200"
                 TextWrapping="Wrap"
-                Margin="0,10,0,0"
                 IsEnabled="False"
+                Margin="0,10,0,0"
                 HorizontalContentAlignment="Center"
                 BorderThickness="0"
+                FontFamily="Rockwell"
                 Background="{x:Null}"
                 />
         </StackPanel>
         <StackPanel
             Orientation="Horizontal"
-            Height="50"
+            HorizontalAlignment="Center"
             Width="300"
-            Margin="250,100,250,0"
+            Margin="0,269,0,124"
             >
             <Button
                 x:Name="btnRegister"
@@ -83,7 +106,16 @@
                 Width="100"
                 Margin="40,0,5,0"
                 Click="btnRegister_Click"
-                />
+                Background="#FFEAE56C"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                FontFamily="Rockwell">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             <Button
                 x:Name="btnCancel"
                 Content="Cancel"
@@ -91,6 +123,34 @@
                 Width="100"
                 Margin="5,0,40,0"
                 Click="btnCancel_Click"
+                BorderBrush="#FFFFBA3C"
+                BorderThickness="2"
+                Background="#FFEAE56C"
+                FontFamily="Rockwell"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel
+            Width="200"
+            Height="50"
+            Margin="45,325,195,49"
+            Orientation="Horizontal">
+            <Image
+                Source="/images/chefs-hat.png"
+                Height="50"
+                Width="30"
+                Margin="0,0,0,0"
+                />
+            <Image
+                Source="/images/slogan.png"
+                Height="30"
+                Width="130"
+                Margin="-10,18,0,0"
                 />
         </StackPanel>
     </Grid>

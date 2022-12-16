@@ -209,4 +209,9 @@ public class RecipeManager
             await unitOfWork.SaveChangesAsync();
         }
     }
+
+    internal void SearchForRecipeByName()
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
-        Title="RecipeWindow" Height="450" Width="420" WindowStartupLocation="CenterScreen">
+        Title="RecipeWindow" Height="530" Width="420" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FFEAE56C"/>
@@ -162,6 +162,9 @@
                 BorderBrush="#FFFFBA3C"
                 BorderThickness="2"
                 >
+                <Image 
+                    Source="/images/sign-out.png"
+                    />
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
@@ -174,7 +177,7 @@
             Height="300"
             Width="380"
             HorizontalAlignment="Center"
-            Margin="0,104,0,30"
+            Margin="0,112,0,102"
             >
             <ListView
                 x:Name="lvRecipeList"
@@ -211,6 +214,24 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+        </StackPanel>
+        <StackPanel
+            Width="200"
+            Height="70"
+            Margin="40,394,180,50"
+            Orientation="Horizontal">
+            <Image
+                Source="/images/chefs-hat.png"
+                Height="50"
+                Width="30"
+                Margin="0,0,0,0"
+                />
+            <Image
+                Source="/images/slogan.png"
+                Height="30"
+                Width="130"
+                Margin="-10,18,0,0"
+                />
         </StackPanel>
     </Grid>
 </Window>

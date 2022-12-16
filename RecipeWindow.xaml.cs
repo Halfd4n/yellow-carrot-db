@@ -23,7 +23,6 @@ namespace YellowCarrotDb;
 /// </summary>
 public partial class RecipeWindow : Window
 {
-    private List<Recipe> _allRecipes;
     private int _signedInUserId;
 
     private UserManager _userManager = new();
@@ -35,13 +34,13 @@ public partial class RecipeWindow : Window
 
         _signedInUserId = signedInUserId;
 
-        UpdateUI();
+        UpdateUIAsync();
     }
 
     /// <summary>
     /// Updating the UI.
     /// </summary>
-    private async void UpdateUI()
+    private async Task UpdateUIAsync()
     {        
         using (RecipeDbContext context = new())
         {
@@ -70,27 +69,29 @@ public partial class RecipeWindow : Window
     }
 
     /// <summary>
-    /// Commencing a search for a given recipe name or a specific recipe tag.
+    /// Commencing a search for a given recipe name or a specific recipe tag. An empty name-search will reset the list showing all recipes.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private async void btnSearch_Click(object sender, RoutedEventArgs e)
     {
-        if (btnSwitchSearch.Content.ToString()!.Equals("Name"))
+        using (RecipeDbContext recipeDbContext = new())
         {
-            using(RecipeDbContext context = new())
-            {
-                UnitOfWork unitOfWork = new(context);
+            UnitOfWork unitOfWork = new(recipeDbContext);
 
-                lvRecipeList.ItemsSource = await unitOfWork.RecipeRepository.GetRecipesByNameAsync(txtSearchString.Text);
+            if (btnSwitchSearch.Content.ToString()!.Equals("Name"))
+            {
+                if (String.IsNullOrWhiteSpace(txtSearchString.Text))
+                {
+                    lvRecipeList.ItemsSource = await unitOfWork.RecipeRepository.GetAllRecipesAsync();
+                }
+                else
+                {
+                    lvRecipeList.ItemsSource = await unitOfWork.RecipeRepository.GetRecipesByNameAsync(txtSearchString.Text); 
+                }
             }
-        }
-        else
-        {
-            using (RecipeDbContext context = new())
+            else
             {
-                UnitOfWork unitOfWork = new(context);
-
                 lvRecipeList.ItemsSource = await unitOfWork.RecipeRepository.GetRecipesByTagAsync(cmbTags.Text);
             }
         }
@@ -179,15 +180,15 @@ public partial class RecipeWindow : Window
 
         Recipe recipeToRemove = (Recipe)lvRecipeList.SelectedItem;
 
-        if (signedInUser.IsAdmin)
+        if (signedInUser.IsAdmin || signedInUser.Username.Equals(recipeToRemove.Username))
         {
             MessageBoxResult messageBoxResult = MessageBox.Show($"Are you sure you want to delete {recipeToRemove.Name}? This action can't be reversed.", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (messageBoxResult.Equals(MessageBoxResult.Yes))
             {
-                _recipeManager.DeleteRecipe(recipeToRemove);
+                await _recipeManager.DeleteRecipe(recipeToRemove);
 
-                UpdateUI();
+                await UpdateUIAsync();
                 lvRecipeList.SelectedItem = null;
             }
             else
@@ -197,24 +198,9 @@ public partial class RecipeWindow : Window
         }
         else
         {
-            if (signedInUser.Username.Equals(recipeToRemove.Username))
-            {
-                MessageBoxResult messageBoxResult = MessageBox.Show($"Are you sure you want to delete {recipeToRemove.Name}? This action can't be reversed.", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBox.Show("Not possible to delete other authors recipes from the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                if (messageBoxResult.Equals(MessageBoxResult.Yes))
-                {
-                    _recipeManager.DeleteRecipe(recipeToRemove);
-
-                    UpdateUI();
-                    lvRecipeList.SelectedItem = null;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Not possible to delete other authors recipes from the database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
-                lvRecipeList.SelectedItem = null;
-            }
+            lvRecipeList.SelectedItem = null;
         }
     }
 }

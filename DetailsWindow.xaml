@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YellowCarrotDb"
         mc:Ignorable="d"
-        Title="DetailsWindow" Height="450" Width="440" WindowStartupLocation="CenterScreen">
+        Title="DetailsWindow" Height="550" Width="440" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FFEAE56C"/>
@@ -28,7 +28,7 @@
                 FontSize="16"
                 VerticalContentAlignment="Center"
                 FontFamily="Rockwell"
-                ></Label>
+                />
             <Label
                 Content="Ingredient:"
                 Height="30"
@@ -36,7 +36,7 @@
                 HorizontalAlignment="Left"
                 FontSize="16"
                 FontFamily="Rockwell"
-                ></Label>
+                />
         </StackPanel>
         <StackPanel
             Height="30"
@@ -55,7 +55,7 @@
                 Background="#FFEAE56C"
                 BorderBrush="#FFFFBA3C"
                 BorderThickness="2"
-                ></TextBox>
+                />
             <Button
                 x:Name="btnEditRecipe"
                 Content="Edit"
@@ -68,7 +68,7 @@
                 BorderThickness="2"
                 >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
@@ -86,7 +86,7 @@
                 Content="Name:"
                 FontFamily="Rockwell"
                 Height="30"
-                ></Label>
+                />
             <TextBox
                 x:Name="txtIngredientName"
                 Width="100"
@@ -97,12 +97,12 @@
                 Background="#FFEAE56C"
                 BorderBrush="#FFFFBA3C"
                 BorderThickness="2"
-                ></TextBox>
+                />
             <Label
                 Content="Unit:"
                 FontFamily="Rockwell"
                 Height="30"
-                ></Label>
+                />
             <TextBox
                 x:Name="txtIngredientUnit"
                 Width="75"
@@ -113,12 +113,12 @@
                 Background="#FFEAE56C"
                 BorderBrush="#FFFFBA3C"
                 BorderThickness="2"
-                ></TextBox>
+                />
             <Label
                 Content="Quantity:"
                 FontFamily="Rockwell"
                 Height="30"
-                ></Label>
+                />
             <TextBox
                 x:Name="txtIngredientQuantity"
                 Width="50"
@@ -129,7 +129,7 @@
                 Background="#FFEAE56C"
                 BorderBrush="#FFFFBA3C"
                 BorderThickness="2"
-                ></TextBox>
+                />
         </StackPanel>
         <StackPanel
             Height="30"
@@ -153,7 +153,7 @@
                 BorderThickness="2"
                 >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
@@ -172,7 +172,7 @@
                 BorderThickness="2"
                 >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
@@ -190,14 +190,13 @@
                 Background="#FFEAE56C"
                 BorderBrush="#FFFFBA3C"
                 BorderThickness="2"
-                >
-            </ComboBox>
+                />
         </StackPanel>
         <StackPanel
             Height="200"
             Width="410"
             HorizontalAlignment="Left"
-            Margin="10,100,0,0"
+            Margin="10,149,0,185"
             Orientation="Horizontal"
             >
             <ListView
@@ -211,7 +210,7 @@
                 BorderThickness="2"
                 >
                 <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
+                    <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     </Style>
                 </ListView.ItemContainerStyle>
@@ -223,11 +222,9 @@
                                 <Setter Property="IsHitTestVisible" Value="False"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
-                        <GridView.Columns>
-                            <GridViewColumn DisplayMemberBinding="{Binding IngredientName}" Header="Ingredient" Width="75"/>
-                            <GridViewColumn DisplayMemberBinding="{Binding Unit}" Header="Unit" Width="45"/>
-                            <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" Width="70"/>
-                        </GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding IngredientName}" Header="Ingredient" Width="75"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Unit}" Header="Unit" Width="45"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" Width="70"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -242,7 +239,7 @@
                 IsEnabled="False"
                 >
                 <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
+                    <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     </Style>
                 </ListView.ItemContainerStyle>
@@ -254,9 +251,7 @@
                                 <Setter Property="IsHitTestVisible" Value="False"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
-                        <GridView.Columns>
-                            <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Tag(s)" Width="95"/>
-                        </GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Tag(s)" Width="95"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -274,7 +269,7 @@
                 BorderThickness="2"
                 >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
@@ -293,7 +288,7 @@
                 BorderThickness="2"
                 >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
@@ -301,9 +296,9 @@
         </StackPanel>
         <StackPanel
             Width="200"
-            Height="40"
+            Height="80"
             HorizontalAlignment="Left"
-            Margin="230,360,0,0"
+            Margin="200,350,0,100"
             Orientation="Horizontal"
             >
             <Button
@@ -320,7 +315,7 @@
                 BorderThickness="2"
                 >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
@@ -338,11 +333,29 @@
                 BorderThickness="2"
                 >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </Button.Resources>
             </Button>
+        </StackPanel>
+        <StackPanel
+            Width="200"
+            Height="80"
+            Margin="25,360,215,100"
+            Orientation="Horizontal">
+            <Image
+                Source="/images/chefs-hat.png"
+                Height="50"
+                Width="30"
+                Margin="0,0,0,0"
+                />
+            <Image
+                Source="/images/slogan.png"
+                Height="30"
+                Width="130"
+                Margin="-10,18,0,0"
+                />
         </StackPanel>
     </Grid>
 </Window>
